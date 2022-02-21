@@ -1,3 +1,10 @@
+Fork of [Launch Navigator](https://github.com/dpa99c/react-native-launch-navigator) with all Geocoding and need for Google API Key removed/disabled.
+
+---
+---
+---
+---
+
 Launch Navigator Cordova/Phonegap Plugin [![Latest Stable Version](https://img.shields.io/npm/v/uk.co.workingedge.phonegap.plugin.launchnavigator.svg)](https://www.npmjs.com/package/uk.co.workingedge.phonegap.plugin.launchnavigator) [![Total Downloads](https://img.shields.io/npm/dt/uk.co.workingedge.phonegap.plugin.launchnavigator.svg)](https://npm-stat.com/charts.html?package=uk.co.workingedge.phonegap.plugin.launchnavigator)
 =================================
 
