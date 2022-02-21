@@ -47,7 +47,7 @@ static NSArray* navigateParamNames;
 // Valid input location types for apps
 static NSDictionary* appLocationTypes;
 
-static BOOL enableGeocoding;
+static BOOL enableGeocoding = NO;
 static BOOL useMapKit;
 static BOOL awaitingLocation = NO;
 
@@ -193,10 +193,6 @@ static NSDictionary* extras;
   destName = params[@"destName"];;
   startName = params[@"startName"];
   extras = params[@"extras"];
-  
-  if([params objectForKey:@"enableGeocoding"]){
-    enableGeocoding = [params objectForKey:@"enableGeocoding"];
-  }
     
   if([params[@"launchMode"] isEqual: @"mapkit"]){
       useMapKit = TRUE;
@@ -1286,12 +1282,12 @@ static NSDictionary* extras;
 }
 
 -(void)setGeocodingEnabled:(bool)enabled{
-  enableGeocoding = enabled;
+  enableGeocoding = NO;
 }
 
 - (bool)isGeocodingEnabled
 {
-    return enableGeocoding;
+    return NO;
 }
 
 -(bool)isNetworkAvailable

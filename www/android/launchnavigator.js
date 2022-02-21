@@ -165,8 +165,6 @@ ln.isAppAvailable = function(appName, success, error){
  *
  * - {array} appSelectionList - list of apps, defined as `launchnavigator.APP` constants, which should be displayed in the picker if the app is available.
  * This can be used to restrict which apps are displayed, even if they are installed. By default, all available apps will be displayed.
- *
- * - {boolean} enableGeocoding - if true, and input location type(s) doesn't match those required by the app, use geocoding to obtain the address/coords as required. Defaults to true.
  */
 ln.navigate = function(destination, options) {
     options = common.util.conformNavigateOptions(arguments);
@@ -190,7 +188,7 @@ ln.navigate = function(destination, options) {
     }
 
     options.app = options.app || common.APP.USER_SELECT;
-    options.enableGeocoding = typeof options.enableGeocoding !== "undefined" ? options.enableGeocoding : true;
+    options.enableGeocoding = false;
 
     // If app is user-selection
     if(options.app === common.APP.USER_SELECT){

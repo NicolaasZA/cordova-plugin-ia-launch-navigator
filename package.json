@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "cordova-plugin-ia-launch-navigator",
     "cordova_name": "Launch Navigator for IntelliAcc",
     "description": "Cordova/Phonegap plugin to navigate to a destination using native navigation apps on Android, iOS, and Windows",
