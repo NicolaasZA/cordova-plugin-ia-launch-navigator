@@ -2,15 +2,15 @@
 <plugin
     xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="uk.co.workingedge.phonegap.plugin.launchnavigator"
+    id="cordova-plugin-ia-launch-navigator"
     version="5.0.6">
 
   <name>Launch Navigator</name>
   <description>Cordova/Phonegap plugin to navigate to a destination using native navigation apps on Android, iOS, and Windows</description>
   <author>Dave Alden</author>
 
-  <repo>https://github.com/dpa99c/phonegap-launch-navigator.git</repo>
-  <issue>https://github.com/dpa99c/phonegap-launch-navigator/issues</issue>
+  <repo>https://github.com/NicolaasZA/cordova-plugin-ia-launch-navigator.git</repo>
+  <issue>https://github.com/NicolaasZA/cordova-plugin-ia-launch-navigator/issues</issue>
 
   <license>MIT</license>
   <keywords>cordova,phonegap,ios,android,windows,navigation,navigator</keywords>
@@ -120,11 +120,6 @@
         <string>taxis99</string>
         <string>iosamap</string>
       </array>
-    </config-file>
-
-    <preference name="LOCATION_USAGE_DESCRIPTION" default="This app requires access to your location for navigation purposes" />
-    <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
-      <string>$LOCATION_USAGE_DESCRIPTION</string>
     </config-file>
 
   </platform>

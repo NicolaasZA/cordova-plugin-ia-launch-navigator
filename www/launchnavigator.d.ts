@@ -1,2 +1,2 @@
-import {LaunchNavigator} from "../uk.co.workingedge.phonegap.plugin.launchnavigator";
+import {LaunchNavigator} from "../cordova-plugin-ia-launch-navigator";
 declare var launchnavigator:LaunchNavigator;
