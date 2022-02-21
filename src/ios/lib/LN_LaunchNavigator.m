@@ -1281,10 +1281,6 @@ static NSDictionary* extras;
     return dict == nil || dict == (id)[NSNull null] || [dict count] == 0;
 }
 
--(void)setGeocodingEnabled:(bool)enabled{
-  enableGeocoding = NO;
-}
-
 - (bool)isGeocodingEnabled
 {
     return NO;

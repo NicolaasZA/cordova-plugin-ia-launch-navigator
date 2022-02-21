@@ -180,7 +180,7 @@ export interface LaunchNavigatorOptions {
     enableGeolocation?: boolean;
 
     /**
-     * (Android and iOS only) If true, and input location type(s) doesn't match those required by the app, use geocoding to obtain the address/coords as required. Defaults to true.
+     * (Android and iOS only) If true, and input location type(s) doesn't match those required by the app, use geocoding to obtain the address/coords as required. Defaults to false.
      */
     enableGeocoding?: boolean;
 
