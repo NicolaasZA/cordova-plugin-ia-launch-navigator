@@ -49,7 +49,6 @@ import uk.co.workingedge.LaunchNavigator;
 public class LaunchNavigatorPlugin extends CordovaPlugin {
 
     private static final String LOG_TAG = "LaunchNavigatorPlugin";
-    private static final String MANIFEST_API_KEY = "launchnavigator.GOOGLE_API_KEY";
 
     private LaunchNavigator launchNavigator;
     private CordovaLogger logger;
@@ -59,10 +58,6 @@ public class LaunchNavigatorPlugin extends CordovaPlugin {
         try {
             logger = new CordovaLogger(cordova, webView, LOG_TAG);
             launchNavigator = new LaunchNavigator(cordova.getActivity().getApplicationContext(), new CordovaLogger(cordova, webView, LaunchNavigator.LOG_TAG));
-            String googleApiKey = cordova.getActivity().getPackageManager().getApplicationInfo(cordova.getActivity().getPackageName(), PackageManager.GET_META_DATA).metaData.getString(MANIFEST_API_KEY);
-            if(googleApiKey != null){
-                launchNavigator.setGoogleApiKey(googleApiKey);
-            }
         }catch (Exception e){
             Log.e(LOG_TAG, e.getMessage());
         }
@@ -149,10 +144,6 @@ public class LaunchNavigatorPlugin extends CordovaPlugin {
     private void setDebug(boolean enabled){
         this.logger.setEnabled(enabled);
         this.launchNavigator.getLogger().setEnabled(enabled);
-    }
-
-    private void setApiKey(String apiKey){
-        this.launchNavigator.setGoogleApiKey(apiKey);
     }
 
     private void handleError(String msg, CallbackContext callbackContext){
