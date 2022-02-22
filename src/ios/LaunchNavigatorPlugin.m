@@ -54,15 +54,6 @@
      }
  }
 
- - (void) setApiKey:(CDVInvokedUrlCommand*)command;{
-    // Adding here just to keep the interface same between android and iOS
-     @try {
-         [self sendPluginSuccessWithCommand:command];
-     }@catch (NSException* exception) {
-         [self handleExceptionWithCommand:exception command:command];
-     }
- }
-
 - (void) navigate:(CDVInvokedUrlCommand*)command;
 {
     @try {

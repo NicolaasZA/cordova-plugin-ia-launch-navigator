@@ -75,7 +75,6 @@ public class LaunchNavigatorPlugin extends CordovaPlugin {
                 callbackContext.success();
             } else if ("setApiKey".equals(action)) {
                 String apiKey = args.getString(0);
-                setApiKey(apiKey);
                 callbackContext.success();
             } else if ("navigate".equals(action)) {
                 /**
