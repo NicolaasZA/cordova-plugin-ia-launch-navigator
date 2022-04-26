@@ -1,54 +1,36 @@
-Fork of [Launch Navigator](https://github.com/dpa99c/react-native-launch-navigator) with all Geocoding and need for Google API Key removed/disabled.
+**Fork of [Launch Navigator](https://github.com/dpa99c/phonegap-launch-navigator) with all Geocoding and need for Google API Key removed/disabled.**
 
----
----
----
----
+# cordova-plugin-ia-launch-navigator
 
-Launch Navigator Cordova/Phonegap Plugin [![Latest Stable Version](https://img.shields.io/npm/v/uk.co.workingedge.phonegap.plugin.launchnavigator.svg)](https://www.npmjs.com/package/uk.co.workingedge.phonegap.plugin.launchnavigator) [![Total Downloads](https://img.shields.io/npm/dt/uk.co.workingedge.phonegap.plugin.launchnavigator.svg)](https://npm-stat.com/charts.html?package=uk.co.workingedge.phonegap.plugin.launchnavigator)
-=================================
+[![Latest Stable Version](https://img.shields.io/npm/v/cordova-plugin-ia-launch-navigator.svg) ](https://npm-stat.com/charts.html?package=cordova-plugin-ia-launch-navigator)
+[![Total Downloads](https://img.shields.io/npm/dt/cordova-plugin-ia-launch-navigator.svg)](https://npm-stat.com/charts.html?package=cordova-plugin-ia-launch-navigator)
 
 Cordova/Phonegap plugin for launching today's most popular navigation/ride apps to navigate to a destination.
 
-Platforms: Android, iOS and Windows.
+Platforms: Android and iOS
 
-Key features:
-
-- Single, clean API to abstract away the gory details of each 3rd party app's custom URI scheme
-- Detects which supported apps are installed/available on the user's device
-- API to detect which features are supported by which apps on which platforms
-- Out-of-the-box UI for app selection which remembers user choice
-- Growing list of [supported apps](#supported-navigation-apps)
-
-Launch Navigator is also available as a [React Native module](https://github.com/dpa99c/react-native-launch-navigator).
-
-<p align="center">
-  <img src="http://i.imgur.com/v96FhpZ.gif" />
-  <span>&nbsp;</span>
-  <img src="http://i.imgur.com/mUg9WqO.gif" />
-</p>
-
+## Support the upstream author!
 <!-- DONATE -->
 [![donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG_global.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZRD3W47HQ3EMJ)
 
+<quote>
 I dedicate a considerable amount of my free time to developing and maintaining this Cordova plugin, along with my other Open Source software.
 To help ensure this plugin is kept updated, new features are added and bugfixes are implemented quickly, please donate a couple of dollars (or a little more if you can stretch) as this will help me to afford to dedicate time to its maintenance. Please consider donating if you're using this plugin in an app that makes you money, if you're being paid to make the app, if you're asking for new features or priority bug fixes.
+</quote>
 <!-- END DONATE -->
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
 - [General concepts](#general-concepts)
   - [App detection, selection and launching](#app-detection-selection-and-launching)
-  - [Geocoding and input format of start/destination locations](#geocoding-and-input-format-of-startdestination-locations)
+  - ~~Geocoding and input format of start/destination locations~~
   - [Remember user's choice of navigation app](#remember-users-choice-of-navigation-app)
 - [Supported navigation apps](#supported-navigation-apps)
   - [Adding support for more apps](#adding-support-for-more-apps)
 - [Installing](#installing)
   - [Using the CLI](#using-the-cli)
   - [PhoneGap Build](#phonegap-build)
-  - [Google API key for Android](#google-api-key-for-android)
+  - ~~Google API key for Android~~
   - [OKHTTP Library](#okhttp-library)
 - [Usage examples](#usage-examples)
   - [Simple usage](#simple-usage)
@@ -59,9 +41,6 @@ To help ensure this plugin is kept updated, new features are added and bugfixes 
     - [Navigate using a specific app](#navigate-using-a-specific-app)
     - [List all of the apps supported by the current platform](#list-all-of-the-apps-supported-by-the-current-platform)
     - [List apps available on the current device](#list-apps-available-on-the-current-device)
-- [Reporting issues](#reporting-issues)
-  - [Reporting a bug or problem](#reporting-a-bug-or-problem)
-  - [Requesting a new feature](#requesting-a-new-feature)
 - [Supported parameters](#supported-parameters)
   - [Transport modes](#transport-modes)
 - [Plugin API](#plugin-api)
@@ -240,18 +219,6 @@ Add the following xml to your config.xml to use the latest version of this plugi
         <variable name="GOOGLE_API_KEY_FOR_ANDROID" value="{your_api_key}" />
     </plugin>
 
-## Google API key for Android
-- On Android, this plugin uses [Google's Geocoding API](https://developers.google.com/maps/documentation/geocoding/intro) to geocode input addresses to lat/lon coordinates in order to support navigation apps which only allow input locations to be specified as lat/lon coordinates.
-- Google now requires that an API key be specified in order to use the Geocoding API
-    - For more information on how to obtain an API key, see the [Google documentation](https://developers.google.com/maps/documentation/geocoding/get-api-key).
-    - Don't place any application restrictions on the key, otherwise geocoding will fail.
-- You'll need to provide your Google API key to the plugin by either:
-    - setting the `GOOGLE_API_KEY_FOR_ANDROID` plugin variable during plugin installation
-        - Note: this method places your API in the `AndroidManifest.xml` in cleartext so carries the possible security risk of a malicious party decompiling your app to obtain your API key (see [#249](https://github.com/dpa99c/phonegap-launch-navigator/issues/249))
-    - setting it at runtime by calling the [setApiKey()](#setapikey) function
-        - this method is secure from a security perspective.
-        - you must call this method in each app session (e.g. at app startup) before attempting to use the plugin's geocoding features on Android.
-
 ## OKHTTP Library
 - This plugin uses the [OKHTTP library](https://square.github.io/okhttp/) on Android to access Google's remote Geocoding API service
 - The library is included at Android build time via Gradle
@@ -323,58 +290,6 @@ Coordinates can be specified as a string or array
             console.log(launchnavigator.getAppDisplayName(app) + (results[app] ? " is" : " isn't") +" available");
         }
     });
-    
-# Reporting issues
-**IMPORTANT:** Please read the following carefully. 
-Failure to follow the issue template guidelines below will result in the issue being immediately closed.
-
-## Reporting a bug or problem
-Before [opening a bug issue](https://github.com/dpa99c/phonegap-launch-navigator/issues/new?assignees=&labels=&template=bug_report.md&title=), please do the following:
-- *DO NOT* open issues asking for support in using/integrating the plugin into your project
-    - Only open issues for suspected bugs/issues with the plugin that are generic and will affect other users
-    - I don't have time to offer free technical support: this is free open-source software
-    - Ask for help on StackOverflow, Ionic Forums, etc.
-    - Use the [example project](https://github.com/dpa99c/phonegap-launch-navigator-example) as a known working reference
-    - Any issues requesting support will be closed immediately.
-- *DO NOT* open issues related to the  [Ionic Typescript wrapper for this plugin](https://github.com/ionic-team/ionic-native/blob/master/src/%40ionic-native/plugins/launch-navigator/index.ts)
-    - This is owned/maintained by [Ionic](https://github.com/ionic-team) and is not part of this plugin
-    - Please raise such issues/PRs against [Ionic Native](https://github.com/ionic-team/ionic-native/) instead.
-	- To verify an if an issue is caused by this plugin or its Typescript wrapper, please re-test using the vanilla Javascript plugin interface (without the Ionic Native wrapper).
-	- Any issue opened here which is obviously an Ionic Typescript wrapper issue will be closed immediately.
-- Read the above documentation thoroughly
-- Check your target country is supported for turn-by-turn by the native navigation app
-  - [Apple Maps country list for iOS](https://www.apple.com/ios/feature-availability/#maps-turn-by-turn-navigation)
-  - [Google Maps country list for Android](https://support.google.com/gmm/answer/3137767?hl=en-GB)
-  - [Bing Maps country list for Windows Phone](https://msdn.microsoft.com/en-us/library/dd435699.aspx)
-- Check the [CHANGELOG](https://github.com/dpa99c/phonegap-launch-navigator/blob/master/CHANGELOG.md) for any breaking changes that may be causing your issue.
-- Check a similar issue (open or closed) does not already exist against this plugin.
-	- Duplicates or near-duplicates will be closed immediately.
-- When [creating a new issue](https://github.com/dpa99c/phonegap-launch-navigator/issues/new/choose)
-    - Choose the "Bug report" template
-    - Fill out the relevant sections of the template and delete irrelevant sections
-    - *WARNING:* Failure to complete the issue template will result in the issue being closed immediately. 
-- Reproduce the issue using the [example project](https://github.com/dpa99c/phonegap-launch-navigator-example)
-	- This will eliminate bugs in your code or conflicts with other code as possible causes of the issue
-	- This will also validate your development environment using a known working codebase
-	- If reproducing the issue using the example project is not possible, create an isolated test project that you are able to share
-- Include full verbose console output when reporting build issues
-    - If the full console output is too large to insert directly into the Github issue, then post it on an external site such as [Pastebin](https://pastebin.com/) and link to it from the issue 
-    - Often the details of an error causing a build failure is hidden away when building with the CLI
-        - To get the full detailed console output, append the `--verbose` flag to CLI build commands
-        - e.g. `cordova build ios --verbose`
-    - Failure to include the full console output will result in the issue being closed immediately
-- If the issue relates to the plugin documentation (and not the code), please of a [documentation issue](https://github.com/dpa99c/phonegap-launch-navigator/issues/new?assignees=&labels=&template=documentation-issue.md&title=)
-
-## Requesting a new feature
-Before [opening a feature request issue](https://github.com/dpa99c/phonegap-launch-navigator/issues/new?assignees=&labels=&template=feature_request.md&title=), please do the following:
-- Check the above documentation to ensure the feature you are requesting doesn't already exist
-- Check the list if open/closed issues to check if there's a reason that feature hasn't been included already
-- Ensure the feature you are requesting is actually possible to implement and generically useful to other users than yourself
-- Where possible, post a link to the documentation related to the feature you are requesting
-- Include other relevant links, e.g.
-    - Stack Overflow post illustrating a solution
-    - Code within another Github repo that illustrates a solution 
-    
 
 # Supported parameters
 
@@ -930,6 +845,7 @@ On Android, 99 Taxi is currently the only app where `options.start` is a **requi
 
 Thanks to:
 
+- [dpa99c](https://github.com/dpa99c) for the awesome parent plugin
 - [opadro](https://github.com/opadro) for Windows implementation
 - [Eddy Verbruggen](https://github.com/EddyVerbruggen) for [cordova-plugin-actionsheet](https://github.com/EddyVerbruggen/cordova-plugin-actionsheet)
 
